@@ -1,7 +1,7 @@
 [project]
-name = "amii-tp1"
+name = "utn-frd-amii-tp1"
 version = "0.1.0"
-description = "Trabajo Práctico 1 de Análisis Matemático II"
+description = "Trabajo Práctico 1 de Análisis Matemático II, UTN FRD"
 authors = [
   {name = "Martín Stanicio", email = "mstanicio@frd.utn.edu.ar"},
 ]
