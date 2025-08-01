@@ -14,3 +14,5 @@ $$
 2. Realizar un estudio de continuidad de la función en el recinto dado.
 
 ![Representación gráfica de la función f](assets/surface.png)
+
+![Curvas de nivel de la función f](assets/contour.png)

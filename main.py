@@ -29,3 +29,19 @@ plt.savefig(
     pad_inches=0.3,
 )
 plt.close()
+
+# curvas de nivel
+contours = plt.contour(X, Y, Z, levels=15, cmap="viridis")
+plt.clabel(contours)
+plt.colorbar(contours, label="z = f(x, y)")
+
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Curvas de nivel de la función f")
+
+plt.savefig(
+    os.path.join(ASSETS_DIR, "contour.png"),
+    dpi=300,
+    bbox_inches="tight",
+)
+plt.close()
