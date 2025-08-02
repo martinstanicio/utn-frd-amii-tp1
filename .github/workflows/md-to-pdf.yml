@@ -7,6 +7,8 @@ on:
     paths:
       - "README.md"
       - "assets/**"
+      - ".github/workflows/md-to-pdf.yml"
+      - ".github/util/header.tex"
   workflow_dispatch:
 
 jobs:
@@ -28,8 +30,6 @@ jobs:
           pandoc README.md -o utn-frd-amii-tp1-martin-stanicio.pdf \
             --pdf-engine=xelatex \
             --from markdown+tex_math_dollars \
-            -V author="Martín Stanicio" \
-            -V title="Trabajo Práctico 1 | Análisis Matemático II | Martín Stanicio" \
             -V lang=es \
             -V geometry:a4paper \
             -V geometry:margin=2.5cm \
