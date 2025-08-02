@@ -28,7 +28,9 @@ jobs:
           pandoc README.md -o utn-frd-amii-tp1-martin-stanicio.pdf \
             --pdf-engine=xelatex \
             --from markdown+tex_math_dollars \
-            --highlight-style=pygments
+            -V geometry:a4paper \
+            -V geometry:margin=2.5cm \
+            -H .github/util/header.tex
 
       - name: Create tag with timestamp
         id: tag
