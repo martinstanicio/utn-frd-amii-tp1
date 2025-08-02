@@ -21,7 +21,6 @@ axes.set_xlabel("y")
 axes.set_ylabel("x")
 axes.set_zlabel("z")
 
-plt.title("Representación gráfica de la función f")
 plt.savefig(
     os.path.join(ASSETS_DIR, "surface.png"),
     dpi=300,
@@ -37,7 +36,6 @@ plt.colorbar(contours, label="z = f(x, y)")
 
 plt.xlabel("x")
 plt.ylabel("y")
-plt.title("Curvas de nivel de la función f")
 
 plt.savefig(
     os.path.join(ASSETS_DIR, "contour.png"),
