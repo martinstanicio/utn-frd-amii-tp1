@@ -1,0 +1,41 @@
+name: Markdown to PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "README.md"
+      - "assets/**"
+  workflow_dispatch:
+
+jobs:
+  mdtopdf:
+    name: Build PDF from Markdown
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Pandoc and LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-latex-extra texlive-fonts-recommended
+
+      - name: Generate PDF with math rendering
+        run: |
+          pandoc README.md -o utn-frd-amii-tp1-martin-stanicio.pdf \
+            --pdf-engine=xelatex \
+            --from markdown+tex_math_dollars \
+            --highlight-style=pygments
+
+      - name: Create tag with timestamp
+        id: tag
+        run: echo "tag=$(date +'%Y%m%d-%H%M')" >> "$GITHUB_OUTPUT"
+
+      - name: Create Github release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.tag.outputs.tag }}" utn-frd-amii-tp1-martin-stanicio.pdf --title "${{ steps.tag.outputs.tag }}"
